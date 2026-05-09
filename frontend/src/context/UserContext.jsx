@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { createContext, useEffect, useState } from 'react'
 export const userDataContext=createContext()
 function UserContext({children}) {
-    const serverUrl= import.meta.env.VITE_API_BASE_URL ||"https://ai-assistant-project-backend-l9ve.onrender.com"
+    const serverUrl= import.meta.env.VITE_API_BASE_URL || (import.meta.env.MODE === "development" ? "http://localhost:8000" : "https://ai-assistant-project-backend-l9ve.onrender.com")
     const [userData,setUserData]=useState(null)
     const [frontendImage,setFrontendImage]=useState(null)
      const [backendImage,setBackendImage]=useState(null)
